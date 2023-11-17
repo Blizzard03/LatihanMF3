@@ -102,7 +102,7 @@ public class FXMLFormsController implements Initializable {
                 Type = "Single";
                 limit = 7;
                 rates = 200000;
-                if (mdl.getRents() >= limit) {
+                if (mdl.getRents() > limit) {
                     discount = (mdl.getRents() - limit) * 30000;
                 } else {
                     discount = 0;
@@ -115,7 +115,7 @@ public class FXMLFormsController implements Initializable {
                 Type = "Family";
                 limit = 15;
                 rates = 500000;
-                if (mdl.getRents() >= limit) {
+                if (mdl.getRents() > limit) {
                     discount = (mdl.getRents() - limit) * 30000;
                 } else {
                     discount = 0;
@@ -128,7 +128,7 @@ public class FXMLFormsController implements Initializable {
                 Type = "Suite";
                 limit = 5;
                 rates = 400000;
-                if (mdl.getRents() >= limit) {
+                if (mdl.getRents() > limit) {
                     discount = (mdl.getRents() - limit) * 30000;
                 } else {
                     discount = 0;
@@ -146,7 +146,7 @@ public class FXMLFormsController implements Initializable {
                 Room_Type.setText(Type);
             }
         }
-        double Rates = limit * rates;
+        double Rates =  mdl.getRents()* rates;
         double totalrates = Rates - discount;
         double Payments = totalrates + tax;
         totalrates_cal.setText(formater.format(Rates));
